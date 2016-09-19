@@ -28,25 +28,25 @@
             <div class="form-group">
                 <label for="inputName" class="col-sm-2 control-label">@lang('bank.name')</label>
                 <div class="col-sm-10">
-                    <input id="inputName" name="name" type="text" class="form-control" value="{{ $bank->name }}" placeholder="Name">
+                    <input id="inputName" name="name" type="text" class="form-control" value="{{ $bank->name }}" placeholder="@lang('bank.name')">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputShortName" class="col-sm-2 control-label">@lang('bank.short_name')</label>
                 <div class="col-sm-10">
-                    <input id="inputShortName" name="short_name" type="text" class="form-control" value="{{ $bank->short_name }}" placeholder="Short Name">
+                    <input id="inputShortName" name="short_name" type="text" class="form-control" value="{{ $bank->short_name }}" placeholder="@lang('bank.short_name')">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputBranch" class="col-sm-2 control-label">@lang('bank.branch')</label>
                 <div class="col-sm-10">
-                    <input id="inputBranch" name="branch" type="text" class="form-control" value="{{ $bank->branch }}" placeholder="Branch">
+                    <input id="inputBranch" name="branch" type="text" class="form-control" value="{{ $bank->branch }}" placeholder="@lang('bank.branch')">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputBranchCode" class="col-sm-2 control-label">@lang('bank.branch_code')</label>
                 <div class="col-sm-10">
-                    <input id="inputBranch" name="branch_code" type="text" class="form-control" value="{{ $bank->branch_code }}" placeholder="Branch Code">
+                    <input id="inputBranch" name="branch_code" type="text" class="form-control" value="{{ $bank->branch_code }}" placeholder="@lang('bank.branch_code')">
                 </div>
             </div>
             <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
@@ -59,7 +59,7 @@
             <div class="form-group">
                 <label for="inputRemarks" class="col-sm-2 control-label">@lang('bank.remarks')</label>
                 <div class="col-sm-10">
-                    <input id="inputRemarks" name="remarks" type="text" class="form-control" value="{{ $bank->remarks }}" placeholder="Remarks">
+                    <input id="inputRemarks" name="remarks" type="text" class="form-control" value="{{ $bank->remarks }}" placeholder="@lang('bank.remarks')">
                 </div>
             </div>
             <div class="form-group">
