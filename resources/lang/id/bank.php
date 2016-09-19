@@ -16,7 +16,7 @@ return [
     'index.table.header.branch_code' => 'Branch Code',
     'index.table.header.status' => 'Status',
     'index.table.header.remarks' => 'Remarks',
-    'index.button.new_phone_provider' => 'New Bank',
+    'index.button.new_bank' => 'New Bank',
     'name' => 'Full Name',
     'short_name' => 'Short Name',
     'branch' => 'Branch',

@@ -23,7 +23,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">Edit Bank</h3>
         </div>
-        {!! Form::model($bank, ['method' => 'PATCH','route' => ['db.master.bank.edit', $bank->id], 'class' => 'form-horizontal']) !!}
+        {!! Form::model($bank, ['method' => 'PATCH','route' => ['db.master.bank.edit', $bank->hId()], 'class' => 'form-horizontal']) !!}
         <div class="box-body">
             <div class="form-group">
                 <label for="inputName" class="col-sm-2 control-label">@lang('bank.name')</label>
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="form-group {{ $errors->has('status') ? 'has-error' : '' }}">
-                <label for="inputStatus" class="col-sm-2 control-label">@lang('phoneProvider.status')</label>
+                <label for="inputStatus" class="col-sm-2 control-label">@lang('bank.status')</label>
                 <div class="col-sm-10">
                     {{ Form::select('status', $statusDDL, null, array('class' => 'form-control', 'placeholder' => 'Please Select')) }}
                     <span class="help-block">{{ $errors->has('status') ? $errors->first('status') : '' }}</span>
