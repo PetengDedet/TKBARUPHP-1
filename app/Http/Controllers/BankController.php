@@ -24,7 +24,7 @@ class BankController extends Controller
     public function index()
     {
         $bank = Bank::paginate(10);
-        return view('bank.index')->with('bank', $bank);
+        return view('bank.index')->with('banks', $bank);
     }
 
     public function show($id)

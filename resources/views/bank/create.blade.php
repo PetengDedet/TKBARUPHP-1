@@ -1,11 +1,16 @@
 @extends('layouts.adminlte.master')
 
-@section('title', 'Bank Management')
+@section('title')
+    @lang('bank.create.title')
+@endsection
 
 @section('page_title')
-    <span class="fa fa-bank fa-fw"></span>&nbsp;Bank
+    <span class="fa fa-bank fa-fw"></span>&nbsp;@lang('bank.create.page_title')
 @endsection
-@section('page_title_desc', '')
+
+@section('page_title_desc')
+    @lang('bank.create.page_title_desc')
+@endsection
 
 @section('content')
     @if (count($errors) > 0)
@@ -21,7 +26,7 @@
 
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Create Bank</h3>
+            <h3 class="box-title">@lang('bank.create.page_title')</h3>
         </div>
         <form class="form-horizontal" action="{{ route('db.master.bank.create') }}" method="post">
             {{ csrf_field() }}

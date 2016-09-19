@@ -1,6 +1,8 @@
 @extends('layouts.adminlte.master')
 
-@section('title', 'Bank Management')
+@section('title')
+    @lang('bank.show.title')
+@endsection
 
 @section('custom_css')
     <style type="text/css">
@@ -12,9 +14,12 @@
 @endsection
 
 @section('page_title')
-    <span class="fa fa-bank fa-fw"></span>&nbsp;Bank
+    <span class="fa fa-bank fa-fw"></span>&nbsp;@lang('bank.show.page_title')
 @endsection
-@section('page_title_desc', '')
+
+@section('page_title_desc')
+    @lang('bank.show.page_title_desc')
+@endsection
 
 @section('content')
     <div class="box box-info">
@@ -24,14 +29,6 @@
         <div class="box-body">
             <form class="form-horizontal">
                 <div class="box-body">
-                    <div class="form-group">
-                        <label for="inputId" class="col-sm-2 control-label">Id</label>
-                        <div class="col-sm-10">
-                            <label id="id" class="control-label">
-                                <span class="control-label-normal">{{ $bank->id }}</span>
-                            </label>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label for="inputName" class="col-sm-2 control-label">@lang('bank.name')</label>
                         <div class="col-sm-10">
