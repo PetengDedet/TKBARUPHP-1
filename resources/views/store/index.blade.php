@@ -5,7 +5,7 @@
 @endsection
 
 @section('page_title')
-    <span class="fa fa-user fa-fw"></span>&nbsp;@lang('store.index.page_title')
+    <span class="fa fa-umbrella fa-fw"></span>&nbsp;@lang('store.index.page_title')
 @endsection
 @section('page_title_desc')
     @lang('store.index.page_title_desc')
@@ -45,8 +45,8 @@
                             <td>{{ $item->address }}</td>
                             <td>{{ $item->phone_num }}</td>
                             <td>{{ $item->tax_id }}</td>
-                            <td>{{ $item->is_default }}</td>
-                            <td>{{ $item->status }}</td>
+                            <td>@lang('lookup.' . $item->is_default )</td>
+                            <td>@lang('lookup.' . $item->status)</td>
                             <td>{{ $item->remarks }}</td>
                             <td class="text-center" width="20%">
                                 <a class="btn btn-xs btn-info" href="{{ route('db.admin.store.show', $item->hId()) }}"><span class="fa fa-info fa-fw"></span></a>

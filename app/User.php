@@ -2,12 +2,13 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
-use Vinkla\Hashids\Facades\Hashids;
-
 use \App\Profile;
+use \App\UserDetail;
+
+use Vinkla\Hashids\Facades\Hashids;
+use Illuminate\Notifications\Notifiable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * App\User
@@ -39,6 +40,7 @@ use \App\Profile;
  * @method static \Illuminate\Database\Query\Builder|\App\User whereProfileId($value)
  * @property-read \App\Store $store
  * @property-read \App\Role $role
+ * @property-read \App\UserDetail $userDetail
  */
 class User extends Authenticatable
 {
@@ -69,7 +71,11 @@ class User extends Authenticatable
     }
 
     public function profile() {
-        return $this->hasOne('\App\Profile', 'id');
+        return $this->hasOne('\App\Profile');
+    }
+
+    public function userDetail() {
+        return $this->hasOne('\App\UserDetail');
     }
 
     public function store()

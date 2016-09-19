@@ -8,8 +8,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\User;
+
 use Vinkla\Hashids\Facades\Hashids;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Store
@@ -37,6 +39,8 @@ use Vinkla\Hashids\Facades\Hashids;
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Store whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $image_filename
+ * @method static \Illuminate\Database\Query\Builder|\App\Store whereImageFilename($value)
  */
 class Store extends Model
 {
@@ -48,5 +52,10 @@ class Store extends Model
 
     public function hId() {
         return HashIds::encode($this->attributes['id']);
+    }
+
+    public function user()
+    {
+        return $this->hasMany('\App\User', 'store_id');
     }
 }

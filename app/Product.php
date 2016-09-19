@@ -9,6 +9,7 @@
 namespace App;
 
 use \Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 /**
  * App\Product
@@ -34,6 +35,12 @@ use \Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Product whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property integer $store_id
+ * @property integer $product_type_id
+ * @property-read \App\Store $store
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProductUnit[] $productUnitList
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereStoreId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Product whereProductTypeId($value)
  */
 class Product extends Model
 {
@@ -42,6 +49,10 @@ class Product extends Model
     protected $fillable = [
         'type', 'name', 'short_code', 'description', 'image_path', 'status', 'remarks'
     ];
+
+    public function hId() {
+        return HashIds::encode($this->attributes['id']);
+    }
 
     public function store()
     {

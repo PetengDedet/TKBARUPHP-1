@@ -1,9 +1,11 @@
 @extends('layouts.adminlte.master')
 
-@section('title', 'product Management')
+@section('title')
+    @lang('product.create.title')
+@endsection
 
 @section('page_title')
-    <span class="fa fa-product fa-fw"></span>&nbsp;Truck
+    <span class="fa fa-product fa-fw"></span>&nbsp;@lang('product.create.page_title')
 @endsection
 @section('page_title_desc', '')
 
@@ -21,7 +23,7 @@
 
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Create Truck</h3>
+            <h3 class="box-title">@lang('product.create.header.title')</h3>
         </div>
         <form class="form-horizontal" action="{{ route('db.master.product.create') }}" method="post">
             {{ csrf_field() }}
@@ -84,7 +86,11 @@
                 <div class="form-group">
                     <label for="inputButton" class="col-sm-2 control-label"></label>
                     <div class="col-sm-10">
+<<<<<<< HEAD
+                        <a href="{{ route('db.admin.user') }}" class="btn btn-default">Cancel</a>
+=======
                         <a href="{{ route('db.master.product') }}" class="btn btn-default">Cancel</a>
+>>>>>>> origin/master
                         <button class="btn btn-default" type="submit">Submit</button>
                     </div>
                 </div>

@@ -16,7 +16,7 @@
 
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">@lang('product.index.table.header.title')</h3>
+            <h3 class="box-title">@lang('product.index.header.title')</h3>
         </div>
         <div class="box-body">
             <table class="table table-bordered">
