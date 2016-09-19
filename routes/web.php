@@ -149,6 +149,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function ()
     Route::patch('/dashboard/master/vendor/trucking/edit/{id}', 'VendorTruckingController@update');
     Route::delete('/dashboard/master/vendor/trucking/edit/{id}', 'VendorTruckingController@delete');
 
+    Route::get('/dashboard/master/customer', 'CustomerController@index')->name('db.master.customer');
+    Route::get('/dashboard/master/customer/show/{id}', 'CustomerController@show')->name('db.master.customer.show');
+    Route::get('/dashboard/master/customer/create', 'CustomerController@create')->name('db.master.customer.create');
+    Route::post('/dashboard/master/customer/create', 'CustomerController@store');
+    Route::get('/dashboard/master/customer/edit/{id}', 'CustomerController@edit')->name('db.master.customer.edit');
+    Route::patch('/dashboard/master/customer/edit/{id}', 'CustomerController@update');
+    Route::delete('/dashboard/master/customer/edit/{id}', 'CustomerController@delete')->name('db.master.customer.delete');
+
     Route::get('/dashboard/customer/confirmation', 'CustomerController@confirmation')->name('db.customer.confirmation');
     Route::get('/dashboard/customer/confirmation/{id}', 'CustomerController@confirmation');
     Route::patch('/dashboard/customer/confirmation/{id}', 'CustomerController@confirmation');
