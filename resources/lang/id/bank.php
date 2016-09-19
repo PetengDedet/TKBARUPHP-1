@@ -20,7 +20,7 @@ return [
     'name' => 'Full Name',
     'short_name' => 'Short Name',
     'branch' => 'Branch',
-    'branch_code' => 'Branch',
+    'branch_code' => 'Branch Code',
     'status' => 'Status',
     'remarks' => 'Remarks',
 

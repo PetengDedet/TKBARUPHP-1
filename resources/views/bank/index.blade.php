@@ -44,9 +44,9 @@
                         <td>{{ $bank->remarks }}</td>
 
                         <td class="text-center" width="20%">
-                            <a class="btn btn-xs btn-info" href="{{ route('db.admin.bank.show', $bank->id) }}"><span class="fa fa-info fa-fw"></span></a>
-                            <a class="btn btn-xs btn-primary" href="{{ route('db.admin.bank.edit', $bank->id) }}"><span class="fa fa-pencil fa-fw"></span></a>
-                            {!! Form::open(['method' => 'DELETE', 'route' => ['db.admin.bank.delete', $bank->id], 'style'=>'display:inline'])  !!}
+                            <a class="btn btn-xs btn-info" href="{{ route('db.master.bank.show', $bank->id) }}"><span class="fa fa-info fa-fw"></span></a>
+                            <a class="btn btn-xs btn-primary" href="{{ route('db.master.bank.edit', $bank->id) }}"><span class="fa fa-pencil fa-fw"></span></a>
+                            {!! Form::open(['method' => 'DELETE', 'route' => ['db.master.bank.delete', $bank->id], 'style'=>'display:inline'])  !!}
                             <button type="submit" class="btn btn-xs btn-danger"><span class="fa fa-close fa-fw"></span></button>
                             {!! Form::close() !!}
                         </td>
@@ -56,7 +56,7 @@
             </table>
         </div>
         <div class="box-footer clearfix">
-            <a class="btn btn-success" href="{{ route('db.admin.bank.create') }}"><span class="fa fa-plus fa-fw"></span>&nbsp;@lang('bank.index.button.new_phone_provider')</a>
+            <a class="btn btn-success" href="{{ route('db.master.bank.create') }}"><span class="fa fa-plus fa-fw"></span>&nbsp;@lang('bank.index.button.new_phone_provider')</a>
             <ul class="pagination pagination-sm no-margin pull-right">
                 <li><a href="#">&laquo;</a></li>
                 <li><a href="#">1</a></li>

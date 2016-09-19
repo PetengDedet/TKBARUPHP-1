@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="inputButton" class="col-sm-2 control-label"></label>
                         <div class="col-sm-10">
-                            <a href="{{ route('db.admin.phoneProvider') }}" class="btn btn-default">Back</a>
+                            <a href="{{ route('db.master.bank') }}" class="btn btn-default">Back</a>
                         </div>
                     </div>
                 </div>

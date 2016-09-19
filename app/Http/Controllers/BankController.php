@@ -8,7 +8,11 @@
 
 namespace App\Http\Controllers;
 
+use \DateTime;
 use App\Bank;
+use Illuminate\Http\Request;
+use App\Lookup;
+use Validator;
 
 class BankController extends Controller
 {
@@ -29,62 +33,64 @@ class BankController extends Controller
         return view('bank.show')->with('bank', $bank);
     }
 
-    // public function create()
-    // {
-    //     $statusDDL = Lookup::where('category', '=', 'STATUS')->get()->pluck('description', 'code');
+    public function create()
+    {
+        $statusDDL = Lookup::where('category', '=', 'STATUS')->get()->pluck('description', 'code');
 
-    //     return view('phoneProvider.create', compact('statusDDL'));
-    // }
+        return view('bank.create', compact('statusDDL'));
+    }
 
-    // public function store(Request $data)
-    // {
-    //     $validator = Validator::make($data->all(),[
-    //         'name'    => 'required|string|max:255',
-    //         'short_name' => 'required|string|max:255',
-    //         'prefix'          => 'required|string|max:255',
-    //         'status'          => 'required',
-    //         'remarks'         => 'required|string|max:255',
+    public function store(Request $data)
+    {
+        $validator = Validator::make($data->all(),[
+            'name'    		=> 'required|string|max:255',
+            'short_name' 	=> 'required|string|max:255',
+          	'branch' 	 	=> 'required|string|max:255',
+          	'branch_code' 	=> 'required|string|max:255',
+            'status'     	=> 'required',
+            'remarks'    	=> 'required|string|max:255',
 
-    //     ]);
+        ]);
 
-    //     if ($validator->fails()) {
-    //         return redirect(route('db.admin.phoneProvider.create'))->withInput()->withErrors($validator);
-    //     } else {
+        if ($validator->fails()) {
+            return redirect(route('db.master.bank.create'))->withInput()->withErrors($validator);
+        } else {
 
-    //         PhoneProvider::create([
-    //             'name'       => $data['name'],
-    //             'short_name' => $data['short_name'],
-    //             'prefix'     => $data['prefix'],
-    //             'status'     => $data['status'],
-    //             'remarks'    => $data['remarks']
-    //         ]);
-    //         return redirect(route('db.admin.phoneProvider'));
-    //     }
-    // }
+            Bank::create([
+                'name'       	=> $data['name'],
+                'short_name' 	=> $data['short_name'],
+                'branch'	 	=> $data['branch'],
+                'branch_code'	=> $data['branch_code'],
+                'status'     	=> $data['status'],
+                'remarks'    	=> $data['remarks']
+            ]);
+            return redirect(route('db.master.bank'));
+        }
+    }
 
-    // private function changeIsDefault()
-    // {
+    private function changeIsDefault()
+    {
 
-    // }
+    }
 
-    // public function edit($id)
-    // {
-    //     $phoneProvider= PhoneProvider::find($id);
+    public function edit($id)
+    {
+        $bank= Bank::find($id);
 
-    //     $statusDDL = Lookup::where('category', '=', 'STATUS')->get()->pluck('description', 'code');
+        $statusDDL = Lookup::where('category', '=', 'STATUS')->get()->pluck('description', 'code');
 
-    //     return view('phoneProvider.edit', compact('phoneProvider', 'statusDDL'));
-    // }
+        return view('bank.edit', compact('bank', 'statusDDL'));
+    }
 
-    // public function update($id, Request $req)
-    // {
-    //     PhoneProvider::find($id)->update($req->all());
-    //     return redirect(route('db.admin.phoneProvider'));
-    // }
+    public function update($id, Request $req)
+    {
+        Bank::find($id)->update($req->all());
+        return redirect(route('db.master.bank'));
+    }
 
-    // public function delete($id)
-    // {
-    //     PhoneProvider::find($id)->delete();
-    //     return redirect(route('db.admin.phoneProvider'));
-    // }
+    public function delete($id)
+    {
+        Bank::find($id)->delete();
+        return redirect(route('db.master.bank'));
+    }
 }
