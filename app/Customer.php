@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: GitzJoey
- * Date: 9/7/2016
- * Time: 12:16 AM
- */
+// PetengDedet
 
 namespace App;
 
