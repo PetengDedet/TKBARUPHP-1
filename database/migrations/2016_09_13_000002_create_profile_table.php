@@ -18,6 +18,7 @@ Class CreateProfileTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->default(0);
             $table->unique('user_id');
+            $table->integer('customer_id')->unsigned();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('address')->nullable();

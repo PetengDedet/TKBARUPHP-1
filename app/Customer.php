@@ -17,18 +17,18 @@ use \Illuminate\Database\Eloquent\Model;
  */
 class Customer extends Model
 {
-    protected $table = 'customers';
+    protected $table = 'customer';
 	protected $fillable = [
-        'name', 'address', 'city', 'phone', 'remarks', 'tax_id', 'payment_due_day'
+        'name', 'address', 'city', 'phone', 'remarks', 'tax_id', 'payment_due_date'
     ];
 
     public function profile()
     {
-        return $this->hasMany('\App\Profile', 'phone_number', 'phone');
+        return $this->hasMany('\App\Profile', 'customer_id', 'id');
     }
 
-    public function bank()
+    public function bankAccount()
     {
-        // return $this->hasMany('\App\Bank');
+        return $this->hasMany('\App\Bank');
     }
 }

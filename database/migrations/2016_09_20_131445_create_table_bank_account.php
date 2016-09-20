@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomerTable extends Migration
+class CreateTableBankAccount extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,13 @@ class CreateCustomerTable extends Migration
     public function up()
     {
         //
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('bank_account', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 100);
-            $table->text('address');
-            $table->string('city', 100);
-            $table->string('phone', 50);
-            $table->text('remarks');
-            $table->string('tax_id', 100);
-            $table->date('payment_due_date')->nullable();
+            $table->string('account_number');
+            $table->integer('bank_id')->unsigned();
+            $table->integer('profile_id')->unsigned();
+            $table->integer('status')->default(0);
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +33,5 @@ class CreateCustomerTable extends Migration
     public function down()
     {
         //
-        Schema::drop('customers');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomerTable extends Migration
+class CreateTablePhoneNumber extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +14,12 @@ class CreateCustomerTable extends Migration
     public function up()
     {
         //
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('phone_number', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 100);
-            $table->text('address');
-            $table->string('city', 100);
-            $table->string('phone', 50);
-            $table->text('remarks');
-            $table->string('tax_id', 100);
-            $table->date('payment_due_date')->nullable();
+            $table->string('number');
+            $table->integer('provider_id')->unsigned();
+            $table->integer('profile_id')->unsigned();
+            $table->string('remarks')->nullable();
             $table->timestamps();
         });
     }
@@ -35,6 +32,6 @@ class CreateCustomerTable extends Migration
     public function down()
     {
         //
-        Schema::drop('customers');
+        Schema::drop('phone_number');
     }
 }

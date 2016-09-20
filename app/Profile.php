@@ -41,11 +41,21 @@ class Profile extends Model
     protected $table = 'profiles';
 
     protected $fillable = [
-        'first_name', 'last_name', 'address', 'ic_num', 'image_filename',
+        'first_name', 'last_name', 'address', 'ic_num', 'image_filename', 'customer_id'
     ];
 
     public function user()
     {
         return $this->belongsTo('\App\User');
+    }
+
+    public function customer()
+    {
+    	return $this->belongsTo('App\Customer', 'id', 'customer_id');
+    }
+
+    public function phoneNumber()
+    {
+    	return $this->hasMany('App\PhoneNumber', 'profile_id', 'id');
     }
 }

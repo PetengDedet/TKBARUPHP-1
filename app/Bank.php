@@ -26,4 +26,9 @@ class Bank extends Model
     public function hId() {
         return HashIds::encode($this->attributes['id']);
     }
+
+    public function bankAccount()
+    {
+    	return $this->hasMany('App\BankAccount', 'bank_id', 'id');
+    }
 }
