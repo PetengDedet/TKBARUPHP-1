@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
 
+use App\DataTables\CustomerDataTable;
+
 use App\Lookup;
 use App\Customer;
 
@@ -17,10 +19,11 @@ class CustomerController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(CustomerDataTable $dataTable)
     {
-        $customer = Customer::paginate(10);
-        return view('customer.index')->with('customer', $customer);
+        return $dataTable->render('customer');
+        // $customer = Customer::paginate(10);
+        // return view('customer.index')->with('customer', $customer);
     }
     public function show($id)
     {
