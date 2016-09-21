@@ -66,3 +66,10 @@
         </div>
     </div>
 @endsection
+@section('custom_js')
+<script type="text/javascript">
+    $(document).ready(function(){
+        notie.alert(1, 'Success!', 0.5);
+    });
+</script>
+@endsection

@@ -14,11 +14,17 @@ class BankAccount extends Model
     protected $table = 'bank_account';
 
     protected $fillable = [
-        'account_number', 'bank_id', 'profile_id' , 'status', 'remarks'
+        'account_number', 'account_name', 'bank_id', 'customer_id', 'status', 'remarks'
     ];
 
-    piblic function bank()
+    public function bank()
     {
     	return $this->belongsTo('App\Bank', 'id', 'bank_id');
     }
+
+    public function customer()
+    {
+    	return $this->belongsTo('App\Customer', 'id', 'customer_id');
+    }
+
 }

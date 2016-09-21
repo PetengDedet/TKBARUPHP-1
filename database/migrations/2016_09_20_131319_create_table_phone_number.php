@@ -16,7 +16,7 @@ class CreateTablePhoneNumber extends Migration
         //
         Schema::create('phone_number', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('number');
+            $table->string('number', 50);
             $table->integer('provider_id')->unsigned();
             $table->integer('profile_id')->unsigned();
             $table->string('remarks')->nullable();

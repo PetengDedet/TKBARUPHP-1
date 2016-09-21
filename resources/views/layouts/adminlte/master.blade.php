@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('adminlte/css/adminlte.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/notie.css') }}">
     @yield('custom_css')
 </head>
 
@@ -36,6 +37,7 @@
         </div>
 
         <script type="application/javascript" src="{{ asset('adminlte/js/app.js') }}"></script>
+        <script type="application/javascript" src="{{ asset('js/notie.min.js') }}"></script>
 
         <script>
             window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token(),]); ?>

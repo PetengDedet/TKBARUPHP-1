@@ -17,8 +17,9 @@ class CreateTableBankAccount extends Migration
         Schema::create('bank_account', function (Blueprint $table) {
             $table->increments('id');
             $table->string('account_number');
+            $table->string('account_name');
             $table->integer('bank_id')->unsigned();
-            $table->integer('profile_id')->unsigned();
+            $table->integer('customer_id')->unsigned();
             $table->integer('status')->default(0);
             $table->string('remarks')->nullable();
             $table->timestamps();
@@ -33,5 +34,6 @@ class CreateTableBankAccount extends Migration
     public function down()
     {
         //
+        Schema::drop('bank_account');
     }
 }

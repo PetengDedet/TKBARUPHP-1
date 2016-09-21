@@ -20,8 +20,8 @@ class CreateCustomerTable extends Migration
             $table->text('address');
             $table->string('city', 100);
             $table->string('phone', 50);
-            $table->text('remarks');
             $table->string('tax_id', 100);
+            $table->text('remarks');
             $table->date('payment_due_date')->nullable();
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreateCustomerTable extends Migration
     public function down()
     {
         //
-        Schema::drop('customers');
+        Schema::drop('customer');
     }
 }
