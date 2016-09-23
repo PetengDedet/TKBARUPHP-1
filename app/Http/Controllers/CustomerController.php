@@ -21,7 +21,7 @@ class CustomerController extends Controller
 
     public function index(CustomerDataTable $dataTable)
     {
-        return $dataTable->render('customer');
+        return $dataTable->render('customer.index');
         // $customer = Customer::paginate(10);
         // return view('customer.index')->with('customer', $customer);
     }
