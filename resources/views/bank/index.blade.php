@@ -43,7 +43,7 @@
                         <td class="text-center">{{ $bank->short_name }}</td>
                         <td class="text-center">{{ $bank->branch }}</td>
                         <td class="text-center">{{ $bank->branch_code }}</td>
-                        <td>{{ $bank->status }}</td>
+                        <td>@lang('lookup.' . $bank->status)</td>
                         <td>{{ $bank->remarks }}</td>
 
                         <td class="text-center" width="20%">
