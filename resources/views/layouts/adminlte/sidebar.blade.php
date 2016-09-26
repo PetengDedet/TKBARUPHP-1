@@ -6,8 +6,8 @@
                 <img src="{{ asset('images/blank.png') }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                {{-- <p>{{ Auth::user()->name }}</p> --}}
-                <a><i class="fa fa-circle text-success"></i> Type :  </a>
+                <p>{{ Auth::user()->name }}</p>
+                <a><i class="fa fa-circle text-success"></i> Type : @lang('lookup.'.Auth::user()->userDetail->type)</a>
             </div>
         </div>
 
@@ -82,7 +82,7 @@
                             Entrust::can('price.pricelevel-create') OR
                             Entrust::can('price.pricelevel-edit') OR
                             Entrust::can('price.pricelevel-delete'))
-                            <li><a href="#"><i class="fa  fa-table fa-fw"></i>&nbsp;@lang('menu.item.price_pricelevel')</a></li>
+                            <li><a href="{{ route('db.price.price_level') }}"><i class="fa  fa-table fa-fw"></i>&nbsp;@lang('menu.item.price_pricelevel')</a></li>
                         @endif
                     </ul>
                 </li>
@@ -119,7 +119,7 @@
                     </a>
                     <ul class="treeview-menu">
                         @if(Entrust::can('bank.upload'))
-                            <li><a href="#"><i class="fa fa-cloud-upload fa-fw"></i>&nbsp;@lang('menu.item.bank_upload')</a></li>
+                            <li><a href="{{ route('db.bank.upload') }}"><i class="fa fa-cloud-upload fa-fw"></i>&nbsp;@lang('menu.item.bank_upload')</a></li>
                         @endif
                         @if(Entrust::can('bank.consolidate'))
                             <li><a href="#"><i class="fa fa-compress fa-fw"></i>&nbsp;@lang('menu.item.bank_consolidate')</a></li>
@@ -156,7 +156,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ route('db.master.truck.maintenance') }}"><i class="fa fa-gears fa-fw"></i>&nbsp;@lang('menu.item.truck_maintenance')</a></li>
+                        <li><a href="{{ route('db.truck.maintenance') }}"><i class="fa fa-gears fa-fw"></i>&nbsp;@lang('menu.item.truck_maintenance')</a></li>
                     </ul>
                 </li>
             @endif
@@ -186,6 +186,10 @@
                 Entrust::can('master.product-create') OR
                 Entrust::can('master.product-edit') OR
                 Entrust::can('master.product-delete') OR
+                Entrust::can('master.product.producttype-list') OR
+                Entrust::can('master.product.producttype-create') OR
+                Entrust::can('master.product.producttype-edit') OR
+                Entrust::can('master.product.producttype-delete') OR
                 Entrust::can('master.warehouse-list') OR
                 Entrust::can('master.warehouse-create') OR
                 Entrust::can('master.warehouse-edit') OR
@@ -224,8 +228,23 @@
                         @if(Entrust::can('master.product-list') OR
                             Entrust::can('master.product-create') OR
                             Entrust::can('master.product-edit') OR
-                            Entrust::can('master.product-delete'))
-                            <li><a href="{{ route('db.master.product') }}"><i class="fa fa-cubes fa-fw"></i>&nbsp;@lang('menu.item.master_product')</a></li>
+                            Entrust::can('master.product-delete') OR
+                            Entrust::can('master.product.producttype-list') OR
+                            Entrust::can('master.product.producttype-create') OR
+                            Entrust::can('master.product.producttype-edit') OR
+                            Entrust::can('master.product.producttype-delete'))
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-cubes fa-fw"></i>&nbsp;@lang('menu.item.master_product')
+                                    <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="{{ route('db.master.product') }}"><i class="fa fa-cubes fa-fw"></i>&nbsp;@lang('menu.item.master_product')</a></li>
+                                    <li><a href="{{ route('db.master.producttype') }}"><i class="fa fa-cube fa-fw"></i>&nbsp;@lang('menu.item.master_producttype')</a></li>
+                                </ul>
+                            </li>
                         @endif
                         @if(Entrust::can('master.warehouse-list') OR
                             Entrust::can('master.warehouse-create') OR
@@ -289,7 +308,7 @@
                 Entrust::can('admin.smsservice-list') OR
                 Entrust::can('admin.smsservice-modem') OR
                 Entrust::can('admin.smsservice-send'))
-                <li class="active treeview">
+                <li class="treeview">
                     <a href="#"><i class="glyphicon glyphicon-cog"></i><span>&nbsp;@lang('menu.item.adm')</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
@@ -328,7 +347,7 @@
                             Entrust::can('admin.phoneprovider-create') OR
                             Entrust::can('admin.phoneprovider-edit') OR
                             Entrust::can('admin.phoneprovider-delete'))
-                            <li><a href="{{ route('db.admin.phoneProvider') }}"><i class="fa fa-minus-square fa-fw"></i>&nbsp;@lang('menu.item.adm_phone_provider')</a></li>
+                            <li><a href="{{ route('db.admin.phoneProvider') }}"><i class="glyphicon glyphicon-phone"></i>&nbsp;@lang('menu.item.adm_phone_provider')</a></li>
                         @endif
                         @if(Entrust::can('admin.smsservice-list') OR
                             Entrust::can('admin.smsservice-modem') OR

@@ -30,12 +30,18 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Truck whereRemarks($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Truck whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Truck whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\TruckMaintenance[] $maintenanceList
  */
 class Truck extends Model
 {
     protected $table = 'truck';
 
     protected $fillable = [
-        'plate_number', 'inspection_date', 'driver', 'status', 'remarks'
+        'store_id', 'plate_number', 'inspection_date', 'driver', 'status', 'remarks'
     ];
+
+    public function maintenanceList()
+    {
+        return $this->hasMany('\App\TruckMaintenance');
+    }
 }

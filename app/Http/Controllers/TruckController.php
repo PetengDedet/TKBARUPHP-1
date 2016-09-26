@@ -8,9 +8,10 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use DateTime;
-use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Http\Request;
 
 use App\Truck;
 use App\Lookup;
@@ -58,6 +59,7 @@ class TruckController extends Controller
             $usableDate = $date->format('Y-m-d H:i:s');
 
             Truck::create([
+                'store_id' => Auth::user()->store->id,
                 'plate_number' => $data['plate_number'],
                 'inspection_date' => $usableDate,
                 'driver'     => $data['driver'],
@@ -66,11 +68,6 @@ class TruckController extends Controller
             ]);
             return redirect(route('db.master.truck'));
         }
-    }
-
-    private function changeIsDefault()
-    {
-
     }
 
     public function edit($id)
@@ -84,8 +81,20 @@ class TruckController extends Controller
 
     public function update($id, Request $req)
     {
-        Truck::find($id)->update($req->all());
-        return redirect(route('db.master.truck'));
+        $validator = Validator::make($req->all(),[
+            'plate_number' => 'required|string|max:255',
+            'inspection_date' => 'required|string|max:255',
+            'driver' => 'required|string|max:255',
+            'status' => 'required',
+            'remarks' => 'required|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect(route('db.master.truck.edit'))->withInput()->withErrors($validator);
+        } else {
+            Truck::find($id)->update($req->all());
+            return redirect(route('db.master.truck'));
+        }
     }
 
     public function delete($id)
