@@ -19,11 +19,11 @@ class Customer extends Model
 
     public function profile()
     {
-        return $this->hasMany('\App\Profile', 'customer_id', 'id');
+        return $this->hasMany('App\Profile', 'customer_id', 'id');
     }
 
     public function bankAccount()
     {
-        return $this->hasMany('\App\Bank');
+        return $this->hasMany('App\BankAccount');
     }
 }

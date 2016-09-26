@@ -12,7 +12,7 @@
     @yield('custom_css')
 </head>
 
-    <body class="hold-transition skin-blue sidebar-mini">
+    <body class="hold-transition skin-black-light sidebar-mini">
         <div class="wrapper">
             @include('layouts.adminlte.header')
 

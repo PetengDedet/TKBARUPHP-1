@@ -22,7 +22,7 @@ class CustomerDatatable extends DataTable
                     <div class="btn-group btn-group-xs">
                         <a href="/dashboard/master/customer/show/' . $data->id . '" class="btn  btn-default" style="color:blue;"><i class="fa fa-eye"></i></a>
                         <a href="/dashboard/master/customer/edit/' . $data->id . '" class="btn btn-default" style="color:green;"><i class="fa fa-pencil"></i></a>
-                        <a href="/dashboard/master/customer/delete/' . $data->id . '" class="btn btn-default" style="color:red;"><i class="fa fa-trash"></i></a>
+                        <a href="/dashboard/master/customer/delete/' . $data->id . '" class="btn btn-default" onclick="return confirm(\'Hapus?\')" style="color:red;"><i class="fa fa-trash"></i></a>
                     </div>
                     ';
             })

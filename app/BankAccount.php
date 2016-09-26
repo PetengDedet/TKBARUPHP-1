@@ -1,4 +1,5 @@
 <?php
+namespace App;
 
 /**
  * Created by PhpStorm.
@@ -14,12 +15,12 @@ class BankAccount extends Model
     protected $table = 'bank_account';
 
     protected $fillable = [
-        'account_number', 'account_name', 'bank_id', 'customer_id', 'status', 'remarks'
+        'account_number', 'bank_id', 'customer_id', 'status', 'remarks'
     ];
 
     public function bank()
     {
-    	return $this->belongsTo('App\Bank', 'id', 'bank_id');
+    	return $this->belongsTo('App\Bank', 'bank_id', 'id');
     }
 
     public function customer()
