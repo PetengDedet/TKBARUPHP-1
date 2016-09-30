@@ -24,9 +24,11 @@ class CustomerController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(CustomerDataTable $dataTable)
+    public function index()
     {   
-        return $dataTable->render('customer.index');
+        $customer = Customer::paginate(10);
+        return view('customer.index', compact('customer', $customer));
+        // return $dataTable->render('customer.index');
     }
 
     public function show($id)
